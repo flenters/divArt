@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Random Div Art</title>
+</head>
+
+<body onload="myFunction()" style="background: black">
+<script>
+  function myFunction() {
+    setInterval(function () {
+      divRandomNumber = Math.floor((Math.random() * 20) + 1);
+      console.log(divRandomNumber);
+      positionRandomNumber = Math.floor((Math.random() * 1000) + 1);
+      console.log(positionRandomNumber);
+      leftpositionRandomNumber = Math.floor(Math.random() * 1820);
+      randomRadius = Math.floor(Math.random() * 20);
+      randomBlur = Math.floor(Math.random() * 5);
+
+      var div1 = document.createElement("div");
+      div1.setAttribute("id", "div1")
+      var div2 = document.createElement("div");
+      div2.setAttribute("id", "div2")
+      var div3 = document.createElement("div");
+      div3.setAttribute("id", "div3")
+
+      var div_array = [
+        div1,
+        div2
+      ]
+      var randomDiv = div_array[Math.floor(Math.random() * div_array.length)];
+      document.body.appendChild(randomDiv);
+      const genRanHex1 = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+      const genRanHex2 = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+
+      var div1csstop = (window.getComputedStyle(div1).getPropertyValue("top"));
+      var div1cssbottom = (window.getComputedStyle(div1).getPropertyValue("bottom"));
+      var div1cssleft = (window.getComputedStyle(div1).getPropertyValue("left"));
+      var div1cssright = (window.getComputedStyle(div1).getPropertyValue("right"));
+      var widthcss = (window.getComputedStyle(div1).getPropertyValue("width"));
+      var heighthcss = (window.getComputedStyle(div1).getPropertyValue("height"));
+      var border1css = (window.getComputedStyle(div1).getPropertyValue("border"));
+      var backgroundColor = (window.getComputedStyle(div1).getPropertyValue("background"));
+      var positionCss = (window.getComputedStyle(div1).getPropertyValue("position"));
+      console.log("top" + div1.style.top);
+      console.log("bottom" + div1cssbottom);
+      console.log("left" + div1cssleft);
+      console.log("right" + div1cssright);
+      console.log("width" + widthcss);
+      console.log("height" + heighthcss);
+      console.log("backgroundColor" + backgroundColor);
+      console.log("positionCss" + positionCss);
+      console.log(border1css);
+
+      div1.style.border = 0 + "px solid black";
+      div1.style.position = "absolute"
+      div1.style.background = "#" + genRanHex1(6);
+      div1.style.width = divRandomNumber + "px";
+      div1.style.height = divRandomNumber + "px";
+      div1.style.left = leftpositionRandomNumber + "px";
+      div1.style.top = positionRandomNumber + "px";
+      div1.style.borderRadius = randomRadius + "px";
+      div1.style.filter = "blur(" + randomBlur + "px)";
+
+      div2.style.position = "absolute"
+      div2.style.border = 0 + "px solid black";
+      div2.style.background = "#" + genRanHex2(6);
+      div2.style.width = divRandomNumber + "px";
+      div2.style.height = divRandomNumber + "px";
+      div2.style.left = leftpositionRandomNumber + "px";
+      div2.style.top = positionRandomNumber + "px";
+      div2.style.borderRadius = randomRadius + "px";
+      div2.style.filter = "blur(" + randomBlur + "px)";
+
+      div3.style.position = "absolute"
+      div3.style.border = 0 + "px solid black";
+      div3.style.background = "#" + genRanHex2(6);
+      div3.style.width = 0 + "px";
+      div3.style.height = 0 + "px";
+      div3.style.borderLeft = divRandomNumber + "px solid transparent";
+      div3.style.borderRight = divRandomNumber + "px solid transparent";
+      div3.style.borderWidth = divRandomNumber + "px"
+      div3.style.borderTop = divRandomNumber + "px solid white"
+      div3.style.borderBottom = divRandomNumber + "px solid white"
+      div3.style.left = leftpositionRandomNumber + "px";
+      div3.style.top = positionRandomNumber + "px";
+
+    }, 50);
+
+  }
+</script>
+</body>
+
+</html>
